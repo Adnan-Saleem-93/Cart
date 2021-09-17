@@ -1,0 +1,25 @@
+.header {
+  background-color: rgb(96 41 154 / 78%);
+  color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+}
+.header h1 {
+  margin: 0;
+}
+.cart-icon {
+  font-size: 2.75rem !important;
+}
+.cart-count {
+  position: relative;
+  bottom: 25px;
+  right: 26%;
+  background-color: #c52065;
+  padding: 3px 7px;
+  margin: auto;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: 700;
+}

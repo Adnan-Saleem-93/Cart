@@ -1,0 +1,26 @@
+.App * {
+  box-sizing: border-box;
+}
+.loading {
+  margin: 5rem auto;
+  text-align: center;
+  font-size: 3.5rem;
+}
+.text-your-cart {
+  color: #22224de6;
+  margin-top: 3rem;
+  text-align: center;
+}
+.empty {
+  color: #404079ad !important;
+}
+.cart-section {
+  width: 900px;
+  margin: 2rem auto;
+  text-align: center;
+}
+@media screen and (max-width: 900px) {
+  .cart-section {
+    width: 100vw;
+  }
+}

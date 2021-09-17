@@ -1,0 +1,36 @@
+.total,
+hr {
+  width: 850px;
+}
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  padding: 0 2rem;
+}
+h3 {
+  color: #22224de6;
+}
+hr {
+  border: 1px solid rgb(79, 46, 121);
+}
+button {
+  cursor: pointer;
+  margin: 0 auto;
+  background-color: transparent;
+  border: 1px solid #373777e6;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 200ms linear;
+}
+.btn-clearAll:hover {
+  background-color: #373777e6;
+  color: #fff;
+}
+@media screen and (max-width: 900px) {
+  .total,
+  hr {
+    width: 95%;
+  }
+}
