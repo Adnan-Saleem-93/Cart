@@ -10,7 +10,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true)
 
   const [state, dispatch] = useReducer(reducer, initialState)
-  const {items, totalCount} = state
+  const {items, totalItems} = state
   useEffect(() => {
     const onFetch = async () => {
       try {
@@ -25,16 +25,20 @@ function App() {
     onFetch()
   }, [])
 
+  const handleItemsAmount = (btnType, index) => {
+    dispatch({type: actions.SET_ITEM_AMOUNT, payload: {btnType: btnType, index: index}})
+  }
+
   return (
     <div className="App">
       {!isLoading ? (
         <>
-          <Header totalCount={totalCount} />
+          <Header totalCount={totalItems} />
           <div className="cart-section">
-            <h1 className="text-your-cart">Your Cart</h1>
+            <h1 className="text-your-cart">Your Items</h1>
             {items.length > 0 ? (
               <>
-                <Items items={items} />
+                <Items items={items} onItemsAmountHandle={handleItemsAmount} />
                 <Total items={items} />
               </>
             ) : (

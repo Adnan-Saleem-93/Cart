@@ -2,7 +2,7 @@ import React from 'react'
 import '../css/Items.css'
 import {AiFillCaretUp, AiFillCaretDown} from 'react-icons/ai'
 
-const Items = ({items}) => {
+const Items = ({items, onItemsAmountHandle}) => {
   return (
     <>
       <section className="item-section">
@@ -18,11 +18,11 @@ const Items = ({items}) => {
                 </div>
               </div>
               <div className="amount-section">
-                <button className="btn-updown">
+                <button className="btn-updown" onClick={() => onItemsAmountHandle('up', index)}>
                   <AiFillCaretUp />
                 </button>
                 <p className="amount">{amount}</p>
-                <button className="btn-updown">
+                <button className="btn-updown" onClick={() => onItemsAmountHandle('down', index)}>
                   <AiFillCaretDown />
                 </button>
               </div>
