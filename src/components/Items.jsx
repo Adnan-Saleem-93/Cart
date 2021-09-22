@@ -18,11 +18,21 @@ const Items = ({items, onItemsAmountHandle}) => {
                 </div>
               </div>
               <div className="amount-section">
-                <button className="btn-updown" onClick={() => onItemsAmountHandle('up', index)}>
+                <button
+                  className="btn-updown"
+                  onClick={() => onItemsAmountHandle('increase', item)}
+                  title="Increase"
+                >
                   <AiFillCaretUp />
                 </button>
                 <p className="amount">{amount}</p>
-                <button className="btn-updown" onClick={() => onItemsAmountHandle('down', index)}>
+                <button
+                  className="btn-updown"
+                  disabled={amount <= 0 ? true : false}
+                  onClick={() => onItemsAmountHandle('decrease', item)}
+                  style={{cursor: amount <= 0 ? 'not-allowed' : 'pointer'}}
+                  title="Decrease"
+                >
                   <AiFillCaretDown />
                 </button>
               </div>

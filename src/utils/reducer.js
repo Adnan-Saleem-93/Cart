@@ -2,18 +2,31 @@ import {actions} from './constants'
 
 export const reducer = (state, {type, payload}) => {
   switch (type) {
+    // this action will be called when the project loads for the first time
     case actions.SET_INITIAL_DATA:
       return {...state, items: payload, totalItems: payload.length}
+    // this action will be called when the users increases/decreases the amount of items
     case actions.SET_ITEM_AMOUNT:
-      let updatedItems = [...state.items]
-      console.log(updatedItems[payload.index].amount + 1)
-      if (payload.btnType === 'up') {
-        updatedItems[payload.index].amount = updatedItems[payload.index].amount + 1
-      } else {
-        updatedItems[payload.index].amount = updatedItems[payload.index].amount - 1
+      let {btnType, item} = payload // destructuring payload
+      let indexOfItem = state.items.indexOf(item) // find index of selected item
+      let newItem = {...item} // duplicate item object into new object
+      // if increase button is clicked
+      if (btnType === 'increase') {
+        newItem.amount += 1
       }
-      // console.log(updatedItems)
-      return {...state, items: updatedItems}
+      // if decrease button is clicked
+      else {
+        newItem.amount -= 1
+      }
+      // duplicate items object into new object
+      let updatedItems = [...state.items]
+      // set the updated item in place of the old item
+      updatedItems[indexOfItem] = newItem
+      // count new total no. of items in cart
+      let newCount = updatedItems.reduce((sum, {amount}) => {
+        return parseInt(sum) + parseInt(amount)
+      }, 0)
+      return {...state, items: updatedItems, totalItems: newCount}
     default:
       return state
   }

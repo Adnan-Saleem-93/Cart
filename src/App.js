@@ -25,8 +25,8 @@ function App() {
     onFetch()
   }, [])
 
-  const handleItemsAmount = (btnType, index) => {
-    dispatch({type: actions.SET_ITEM_AMOUNT, payload: {btnType: btnType, index: index}})
+  const handleItemsAmount = (btnType, item) => {
+    dispatch({type: actions.SET_ITEM_AMOUNT, payload: {btnType: btnType, item: item}})
   }
 
   return (
