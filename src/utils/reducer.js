@@ -6,6 +6,7 @@ export const reducer = (state, {type, payload}) => {
     case actions.SET_INITIAL_DATA:
       return {...state, items: payload, totalItems: payload.length}
     // this action will be called when the users increases/decreases the amount of items
+
     case actions.SET_ITEM_AMOUNT:
       let {btnType, item} = payload // destructuring payload
       let indexOfItem = state.items.indexOf(item) // find index of selected item
@@ -27,6 +28,11 @@ export const reducer = (state, {type, payload}) => {
         return parseInt(sum) + parseInt(amount)
       }, 0)
       return {...state, items: updatedItems, totalItems: newCount}
+
+    // this action will be used to empty the item list
+    case actions.CLEAR_ALL_ITEMS:
+      return {...state, items: [], totalItems: 0}
+
     default:
       return state
   }

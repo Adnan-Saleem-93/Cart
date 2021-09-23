@@ -29,6 +29,10 @@ function App() {
     dispatch({type: actions.SET_ITEM_AMOUNT, payload: {btnType: btnType, item: item}})
   }
 
+  const handleClearAll = () => {
+    dispatch({type: actions.CLEAR_ALL_ITEMS})
+  }
+
   return (
     <div className="App">
       {!isLoading ? (
@@ -39,7 +43,7 @@ function App() {
             {items.length > 0 ? (
               <>
                 <Items items={items} onItemsAmountHandle={handleItemsAmount} />
-                <Total items={items} />
+                <Total items={items} onClearAll={handleClearAll} />
               </>
             ) : (
               <h3 className="empty">Is Empty</h3>
