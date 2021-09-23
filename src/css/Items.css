@@ -54,6 +54,16 @@ p {
   color: #000;
   transform: scale(1.25);
 }
+
+.btn-remove {
+  font-weight: 700;
+  color: rgba(255, 0, 0, 0.63);
+  cursor: pointer;
+}
+.btn-remove:hover {
+  color: rgba(255, 0, 0, 0.829);
+}
+
 @media screen and (max-width: 900px) {
   article {
     padding: 0 1rem;

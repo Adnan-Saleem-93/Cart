@@ -2,7 +2,7 @@ import React from 'react'
 import '../css/Items.css'
 import {AiFillCaretUp, AiFillCaretDown} from 'react-icons/ai'
 
-const Items = ({items, onItemsAmountHandle}) => {
+const Items = ({items, onItemsAmountHandle, onRemoveItem}) => {
   return (
     <>
       <section className="item-section">
@@ -15,6 +15,9 @@ const Items = ({items, onItemsAmountHandle}) => {
                 <div className="description">
                   <p className="title">{title}</p>
                   <p className="price">${price}</p>
+                  <p className="btn-remove" onClick={() => onRemoveItem(id)}>
+                    remove
+                  </p>
                 </div>
               </div>
               <div className="amount-section">

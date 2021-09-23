@@ -33,6 +33,10 @@ export const reducer = (state, {type, payload}) => {
     case actions.CLEAR_ALL_ITEMS:
       return {...state, items: [], totalItems: 0}
 
+    case actions.REMOVE_ITEM:
+      let filteredList = state.items.filter((item) => item.id !== payload)
+      return {...state, items: filteredList, totalItems: filteredList.length}
+
     default:
       return state
   }
