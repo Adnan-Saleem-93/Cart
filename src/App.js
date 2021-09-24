@@ -1,4 +1,4 @@
-import React, {useEffect, useReducer, useState} from 'react'
+import React, {useEffect, useReducer} from 'react'
 import './App.css'
 import Header from './components/Header'
 import Items from './components/Items'
@@ -7,17 +7,14 @@ import {api, actions, initialState} from './utils/constants'
 import {reducer} from './utils/reducer'
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true)
-
   const [state, dispatch] = useReducer(reducer, initialState)
-  const {items, totalItems} = state
+  const {items, totalItems, isLoading} = state
   useEffect(() => {
     const onFetch = async () => {
       try {
         let response = await fetch(api)
         let result = await response.json()
         dispatch({type: actions.SET_INITIAL_DATA, payload: result})
-        setIsLoading(false)
       } catch (err) {
         console.error(err)
       }

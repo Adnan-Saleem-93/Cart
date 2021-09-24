@@ -4,7 +4,7 @@ export const reducer = (state, {type, payload}) => {
   switch (type) {
     // this action will be called when the project loads for the first time
     case actions.SET_INITIAL_DATA:
-      return {...state, items: payload, totalItems: payload.length}
+      return {...state, items: payload, totalItems: payload.length, isLoading: false}
     // this action will be called when the users increases/decreases the amount of items
 
     case actions.SET_ITEM_AMOUNT:
@@ -33,6 +33,7 @@ export const reducer = (state, {type, payload}) => {
     case actions.CLEAR_ALL_ITEMS:
       return {...state, items: [], totalItems: 0}
 
+    // this action will be used to remove a single item
     case actions.REMOVE_ITEM:
       let filteredList = state.items.filter((item) => item.id !== payload)
       return {...state, items: filteredList, totalItems: filteredList.length}
